@@ -227,11 +227,48 @@ function hazardWarningCreator(typeOfWarning) {
   }
 
 }
-const rocksWarning = hazardWarningCreator('Rocks on the Road');
-const rainWarning = hazardWarningCreator('Slippery road');
-const snowWarning = hazardWarningCreator('Icy roads')
+// const rocksWarning = hazardWarningCreator('Rocks on the Road');
+// const rainWarning = hazardWarningCreator('Slippery road');
+// const snowWarning = hazardWarningCreator('Icy roads')
 
-rocksWarning("Main st and Pacific Ave");
-rainWarning("Downtown");
-snowWarning("Parking lot");
-rocksWarning("random location");
+// rocksWarning("Main st and Pacific Ave");
+// rainWarning("Downtown");
+// snowWarning("Parking lot");
+// rocksWarning("random location");
+
+
+//for each, filter, and map
+
+let turtle = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+let filteredTurtle = turtle.filter(num => (num[0] >= 0) && (num[1] >= 0));
+console.log(filteredTurtle);
+
+let mappedTurtle = filteredTurtle.map(num => num[0] + num[1]);
+console.log(mappedTurtle);
+
+let forEachTurtle = mappedTurtle.forEach((num, i) => console.log(`Movement #${i+1}: ${num} steps`));
+console.log(forEachTurtle);
+
+
+//reduce drill
+
+let input = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+
+function decodedSentence(str) {
+  let wordArray = input.split(' ');
+  let finalString= wordArray.reduce(function(string, val){
+    if (val.length === 3) {
+    return string + ' ';
+    } 
+    
+    else {
+      return string + val[val.length-1].toUpperCase();
+    }
+  }, ' ');
+  return finalString;
+}
+
+let testingFunction = decodedSentence(input);
+console.log(testingFunction);
+
